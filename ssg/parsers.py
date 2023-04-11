@@ -22,7 +22,5 @@ class Parser:
             file.write(content)
 
     def copy(self, path, source, dest):
-        full_path = dest / path.relative_to(source)
-        dest_dir = full_path.parent
-        dest_dir.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(path, full_path)
+        shutil.copy2(path, dest / path.relative_to(source))
+        
